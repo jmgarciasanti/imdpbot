@@ -92,6 +92,6 @@ dialog.onBegin(
 // Setup Restify Server
 var server = restify.createServer();
 server.post('/api/messages', bot.verifyBotFramework(), bot.listen());
-server.listen(8080, function () {
+server.listen(process.env.OPENSHIFT_NODEJS_PORT || 8080, process.env.OPENSHIFT_NODEJS_IP || "127.0.0.1", function () {
     console.log('%s listening to %s', server.name, server.url);
 });
