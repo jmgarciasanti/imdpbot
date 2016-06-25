@@ -91,14 +91,17 @@ dialog.onBegin(
 
 // funciones varias
 function respondPrivacy(req, res, next) {
+    res.setHeader('content-type', 'text/plain');
     res.send('(c) MAPFRE');
     next();
 }
 function respondTerms(req, res, next) {
+    res.setHeader('content-type', 'text/plain');
     res.send('Terms of use....');
     next();
 }
 function respondAbout(req, res, next) {
+    res.setHeader('content-type', 'text/plain');
     res.send('About IDMP - Awareness Team - Bot');
     next();
 }
