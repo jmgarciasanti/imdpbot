@@ -1,0 +1,15 @@
+{
+  "author": "",
+  "dependencies": {
+    "botbuilder": "^1.0.1",
+    "restify": "^4.1.1"
+  },
+  "description": "Bot para el Awareness Team del IMDP",
+  "license": "ISC",
+  "main": "app.js",
+  "name": "imdpbot",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "1.0.0"
+}
