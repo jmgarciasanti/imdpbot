@@ -97,7 +97,7 @@ function respondPrivacy(req, res, next) {
 }
 function respondTerms(req, res, next) {
     res.setHeader('content-type', 'text/plain');
-    res.send('Terms of use....');
+    res.send('Terms of use: (c) MAPFRE');
     next();
 }
 function respondAbout(req, res, next) {
