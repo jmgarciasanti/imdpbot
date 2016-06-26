@@ -18,7 +18,7 @@ var dialog = new builder.LuisDialog(model);
 dialog.setThreshold(0.5);
 
 // Create bot and add dialogs
-var bot = new builder.BotConnectorBot({ appId: 'YourAppId', appSecret: 'YourAppSecret' });
+var bot = new builder.BotConnectorBot({ appId: 'imdp_at_mapfre', appSecret: 'e490996eadaa4e9795b881beaeb523fc' });
 
 bot.configure({
     userWelcomeMessage: 'Hello user...Welcome to the insurance bot v0',
