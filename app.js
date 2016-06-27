@@ -70,7 +70,7 @@ dialog.on('UnderstandInsurance1', [
     },
     function (session, results) {
         if (results && results.response && results.response.entity=='Online course') {
-            session.send('Good choice %s!!, please follow this link %s', results.response.entity, 'http://www.mapfre.es');
+            session.send('Good choice \"%s\"!!, please follow this link %s', results.response.entity, 'http://www.mapfre.es');
         } else {
             session.send('OK, maybe later');
         }
