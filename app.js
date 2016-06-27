@@ -66,7 +66,7 @@ dialog.on('ProductList', [
 dialog.on('UnderstandInsurance1', [
     function (session, results) {
         session.send('OK %s! If you want to learn more about insurance you\'re welcome to my free course!!. It\'s only 1.000 hours....but it\'s free!!', session.userData.name);
-        builder.Prompts.choice(session, "Now pick an option.", "Online course|No thanks");
+        builder.Prompts.choice(session, "Now pick an option.", "Online course|No thanks", {listStyle:3, retryPrompt:'Please choose one of the options'});
     },
     function (session, results) {
         if (results && results.response && results.response.entity=='Online course') {
