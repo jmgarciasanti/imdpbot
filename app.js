@@ -47,9 +47,9 @@ bot.add('/profile', [
 
 // Add intent handlers
 dialog.on('ProductList', [
-    function (session, args) {
+    function (session, results) {
         // Resolve and store any entities passed from LUIS.
-        var productCategory = builder.EntityRecognizer.findEntity(args.entities, 'Product::Category');
+        var productCategory = builder.EntityRecognizer.findEntity(results.entities, 'Product::Category');
         productCategory = productCategory!=null? productCategory.entity:'';  
         if (productCategory == '') {
             session.send('%s, I didn\'t understand the type of pet you have....', session.userData.name);
@@ -64,23 +64,31 @@ dialog.on('ProductList', [
 
 // Add intent handlers
 dialog.on('UnderstandInsurance1', [
-    function (session, args) {
-        // Resolve and store any entities passed from LUIS.
+    function (session, results) {
+        var style = 'auto';
         session.send('OK %s! If you want to learn more about insurance you\'re welcome to my free course!!. It\'s only 1.000 hours....but it\'s free!!', session.userData.name);
+        builder.Prompts.choice(session, "Now pick an option.", "Online course|No thanks", { listStyle: style });
+    },
+    function (session, results) {
+        if (results && results.response) {
+            session.send('Good choice %s!!, please follow this link %s', results.response, 'http://www.mapfre.es');
+        } else {
+            session.send('OK, maybe later');
+        }
     }
 ]
 );
 
 // default response
 dialog.onDefault(
-    function (session, args, next) {
+    function (session, results, next) {
         session.send('I\'m sorry %s I didn\'t understand. In this moment I\'m a very basic insurance bot....maybe MAPFRE will invest on me in the future...', session.userData.name);
     }
 );
 
 // begining...
 dialog.onBegin(
-    function (session, args, next) {
+    function (session, results, next) {
         if (!session.userData.name) {
             session.beginDialog('/profile');
         } else {
