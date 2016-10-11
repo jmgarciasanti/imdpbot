@@ -43,8 +43,8 @@ server.listen(process.env.port || process.env.PORT || 3978, function () {
 
 // Create chat bot
 var connector = new builder.ChatConnector({
-    appId: null,
-    appPassword: null
+    appId: 'IMDP_AT_MAPFRE', 
+    appPassword: '167e15c91257421ebc79a4d7065de5d7'
 });
 var bot = new builder.UniversalBot(connector);
 server.post('/api/messages', connector.listen());
