@@ -43,8 +43,8 @@ server.listen(process.env.OPENSHIFT_NODEJS_PORT || 8080, process.env.OPENSHIFT_N
 
 // Create chat bot
 var connector = new builder.ChatConnector({
-    appId: '8bb41ef7-4cab-4bf6-92af-9d80ffb8e9a8', 
-    appSecret: 'vxEbY1YJUXMRyWdczVpRCoj'
+    appId: 'IMDP_AT_MAPFRE', 
+    appSecret: '167e15c91257421ebc79a4d7065de5d7'
 });
 var bot = new builder.UniversalBot(connector);
 server.post('/api/messages', connector.listen());
