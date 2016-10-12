@@ -36,6 +36,15 @@
   <ItemGroup>
     <Compile Include="app-old.js" />
     <Compile Include="app.js" />
+    <Compile Include="cardsDialog.js" />
+    <Compile Include="carouselDialog.js" />
+    <Compile Include="helpDialog.js" />
+    <Compile Include="listDialog.js" />
+    <Compile Include="menuDialog.js" />
+    <Compile Include="pictureDialog.js" />
+    <Compile Include="promptsDialog.js" />
+    <Compile Include="receiptDialog.js" />
+    <Compile Include="rootDialog.js" />
   </ItemGroup>
   <!-- Do not delete the following Import Project.  While this appears to do nothing it is a marker for setting TypeScript properties before our import that depends on them. -->
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="False" />
