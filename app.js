@@ -51,6 +51,11 @@ server.listen(process.env.OPENSHIFT_NODEJS_PORT || 8080, process.env.OPENSHIFT_N
     console.log('%s listening to %s', server.name, server.url);
 });
 
+// setup static file serving
+server.get(/\/resources\/?.*/, restify.serveStatic({
+    directory: __dirname
+}));
+
 // Create chat bot
 var connector = new builder.ChatConnector({
     appId: '8bb41ef7-4cab-4bf6-92af-9d80ffb8e9a8', 
