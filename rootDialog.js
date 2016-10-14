@@ -10,7 +10,7 @@ module.exports = {
                     .title("Microsoft Bot Framework")
                     .text("Your bots - wherever your users are talking.")
                     .images([
-                        builder.CardImage.create(session, "http://www.mapfre.es/seguros/images/894x248-general-quienessomos_tcm744-128789.jpg")
+                        builder.CardImage.create(session, "http://imdpbot-jmgarciasanti.rhcloud.com/resources/quienes_somos.jpg")
                     ])
                     .tap(builder.CardAction.openUrl(session, "http://www.mapfre.es"));
                 var msg = new builder.Message(session).attachments([card]);
