@@ -34,6 +34,7 @@
     <Content Include="README.md" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="actionsDialog.js" />
     <Compile Include="app-old.js" />
     <Compile Include="app.js" />
     <Compile Include="cardsDialog.js" />

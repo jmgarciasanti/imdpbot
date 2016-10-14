@@ -39,7 +39,7 @@ var cardsDialog     = require('./cardsDialog');
 var listDialog      = require('./listDialog');
 var carouselDialog  = require('./carouselDialog');
 var receiptDialog   = require('./receiptDialog');
-
+var actionsDialog   = require('./actionsDialog');
 
 //=========================================================
 // Bot Setup
@@ -116,6 +116,19 @@ bot.on('deleteUserData', function (message) {
 // Anytime the major version is incremented any existing conversations will be restarted.
 bot.use(builder.Middleware.dialogVersion({ version: 1.0, resetCommand: /^reset/i }));
 
+//Adds a first run experience to a bot
+bot.use(builder.Middleware.firstRun({ version: 1.0, dialogId: '*:/firstRun' }));
+
+bot.dialog('/firstRun', [
+    function (session, args) {
+        builder.Prompts.text(session, "Hi! Who are you?");
+    },
+    function (session, results) {
+        session.userData.name = results.response;
+        session.endDialog('Hi %s! Nice to meet you! Please, say something else.', session.userData.name);
+    }
+]);
+
 //=========================================================
 // Bots Global Actions
 //=========================================================
@@ -136,7 +149,7 @@ cardsDialog.load(bot, builder);
 listDialog.load(bot, builder);
 carouselDialog.load(bot, builder);
 receiptDialog.load(bot, builder);
-
+actionsDialog.load(bot, builder);
 
 bot.dialog('/signin', [ 
     function (session) {
@@ -150,37 +163,3 @@ bot.dialog('/signin', [
         session.endDialog(msg);
     }
 ]);
-
-
-bot.dialog('/actions', [
-    function (session) {
-        session.send("Bots can register global actions, like the 'help' & 'goodbye' actions, that can respond to user input at any time. You can even bind actions to buttons on a card.");
-        
-        var msg = new builder.Message(session)
-            .textFormat(builder.TextFormat.xml)
-            .attachments([
-            new builder.HeroCard(session)
-                    .title("Hero Card")
-                    .subtitle("Space Needle")
-                    .text("The <b>Space Needle</b> is an observation tower in Seattle, Washington, a landmark of the Pacific Northwest, and an icon of Seattle.")
-                    .images([
-                builder.CardImage.create(session, "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Seattlenighttimequeenanne.jpg/320px-Seattlenighttimequeenanne.jpg")
-            ])
-                    .buttons([
-                builder.CardAction.dialogAction(session, "weather", "Seattle, WA", "Current Weather")
-            ])
-        ]);
-        session.send(msg);
-        
-        session.endDialog("The 'Current Weather' button on the card above can be pressed at any time regardless of where the user is in the conversation with the bot. The bot can even show the weather after the conversation has ended.");
-    }
-]);
-
-// Create a dialog and bind it to a global action
-bot.dialog('/weather', [
-    function (session, args) {
-        session.endDialog("The weather in %s is 71 degrees and raining.", args.data);
-    }
-]);
-bot.beginDialogAction('weather', '/weather');   // <-- no 'matches' option means this can only be triggered by a button.
-
