@@ -15,7 +15,7 @@ module.exports = {
                     .tap(builder.CardAction.openUrl(session, "http://www.mapfre.es"));
                 var msg = new builder.Message(session).attachments([card]);
                 session.send(msg);
-                session.send("Hi... I'm the Microsoft Bot Framework demo bot for Skype. I can show you everything you can use our Bot Builder SDK to do on Skype.");
+                session.send("Hi... I'm a bot created by MAPFRE...");
                 session.beginDialog('/help');
             },
             function (session, results) {
