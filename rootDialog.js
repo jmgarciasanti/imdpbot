@@ -12,7 +12,7 @@ module.exports = {
                     .images([
                         builder.CardImage.create(session, "http://imdpbot-jmgarciasanti.rhcloud.com/resources/img/verti.jpg")
                     ])
-                    .tap(builder.CardAction.openUrl(session, "http://www.verti.es"));
+                    .tap(builder.CardAction.openUrl(session, "https://www.verti.es"));
                 var msg = new builder.Message(session).attachments([card]);
                 session.send(msg);
                 session.send("Hi... I'm a bot created by Verti...");
