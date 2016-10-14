@@ -13,7 +13,7 @@ module.exports = {
                 for (var i = 0; i < products.length; ++i) {
                     var card= new builder.HeroCard(session)
                     .title(products[i].name)
-                    .text("The <b>" + products[i].name + "</b> product is for...")
+                    .text("The <b>" + products[i].name + "</b> product is for " + products[i].description + " ...")
                     .images([
                         builder.CardImage.create(session, products[i].img)
                     ])
@@ -51,18 +51,18 @@ var products = [
     {
         name: 'Car insurance',
         description: 'cars and little truks',
-        img: 'http://imdpbot-jmgarciasanti.rhcloud.com/resources/img/verti_car.jpg',
+        img: 'http://imdpbot-jmgarciasanti.rhcloud.com/resources/img/verti_car.png',
         url: 'http://www.verti.es/cars'
     },
     {
         name: 'Motorbike insurance',
         description: 'only bikes...',
-        img: 'http://imdpbot-jmgarciasanti.rhcloud.com/resources/img/verti_motorbike.jpg',
+        img: 'http://imdpbot-jmgarciasanti.rhcloud.com/resources/img/verti_motorbike.png',
         url: 'http://www.verti.es/motorbikes'
     },
     {
         name: 'Six wheel insurance',
         description: 'car and motorbike in a single product',
-        img: 'http://imdpbot-jmgarciasanti.rhcloud.com/resources/img/verti_6wheels.jpg',
+        img: 'http://imdpbot-jmgarciasanti.rhcloud.com/resources/img/verti_6wheels.png',
         url: 'http://www.verti.es/6wheels'
     }];
