@@ -1,6 +1,7 @@
 {
   "author": "",
   "dependencies": {
+    "bootstrap": "^3.3.7",
     "botbuilder": "^3.2.3",
     "restify": "^4.1.1"
   },

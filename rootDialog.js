@@ -7,10 +7,10 @@ module.exports = {
             function (session) {
                 // Send a greeting and show help.
                 var card = new builder.HeroCard(session)
-                    .title("Microsoft Bot Framework")
-                    .text("Your bots - wherever your users are talking.")
+                    .title("AwarenessBot @ MAPFRE - IMDP")
+                    .text("Let me help you better understand the world of insurance")
                     .images([
-                        builder.CardImage.create(session, "http://imdpbot-jmgarciasanti.rhcloud.com/resources/quienes_somos.jpg")
+                        builder.CardImage.create(session, "http://imdpbot-jmgarciasanti.rhcloud.com/resources/img/quienes_somos.jpg")
                     ])
                     .tap(builder.CardAction.openUrl(session, "http://www.mapfre.es"));
                 var msg = new builder.Message(session).attachments([card]);

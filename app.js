@@ -55,6 +55,16 @@ server.listen(process.env.OPENSHIFT_NODEJS_PORT || 8080, process.env.OPENSHIFT_N
 server.get(/\/resources\/?.*/, restify.serveStatic({
     directory: __dirname
 }));
+server.get(/\/css\/?.*/, restify.serveStatic({
+    directory: __dirname + '/node_modules/bootstrap/dist/'
+}));
+server.get(/\/fonts\/?.*/, restify.serveStatic({
+    directory: __dirname + '/node_modules/bootstrap/dist/'
+}));
+server.get(/\/js\/?.*/, restify.serveStatic({
+    directory: __dirname + '/node_modules/bootstrap/dist/'
+}));
+
 
 // Create chat bot
 var connector = new builder.ChatConnector({
