@@ -5,7 +5,7 @@ module.exports = {
     load: function (bot, builder) {
         bot.dialog('/carProducts', [
             function (session) {
-                session.send("You can pass a custom message to Prompts.choice() that will present the user with a carousel of cards to select from. Each card can even support multiple actions.");
+                session.send("These are the products available for you");
 
                 // crea las tarjetas
                 var productCards = [];
@@ -52,17 +52,17 @@ var products = [
         name: 'Car insurance',
         description: 'cars and little truks',
         img: 'http://imdpbot-jmgarciasanti.rhcloud.com/resources/img/verti_car.png',
-        url: 'http://www.verti.es/cars'
+        url: 'https://www.verti.es/cars'
     },
     {
         name: 'Motorbike insurance',
         description: 'only bikes...',
         img: 'http://imdpbot-jmgarciasanti.rhcloud.com/resources/img/verti_motorbike.png',
-        url: 'http://www.verti.es/motorbikes'
+        url: 'https://www.verti.es/motorbikes'
     },
     {
         name: 'Six wheel insurance',
         description: 'car and motorbike in a single product',
         img: 'http://imdpbot-jmgarciasanti.rhcloud.com/resources/img/verti_6wheels.png',
-        url: 'http://www.verti.es/6wheels'
+        url: 'https://www.verti.es/6wheels'
     }];
