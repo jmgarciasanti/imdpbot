@@ -33,14 +33,17 @@ var builder         = require('botbuilder');
 var rootDialog      = require('./rootDialog');
 var menuDialog      = require('./menuDialog');
 var helpDialog      = require('./helpDialog');
-var promptsDialog   = require('./promptsDialog');
-var pictureDialog   = require('./pictureDialog');
-var cardsDialog     = require('./cardsDialog');
-var listDialog      = require('./listDialog');
-var carouselDialog  = require('./carouselDialog');
-var receiptDialog   = require('./receiptDialog');
-var actionsDialog   = require('./actionsDialog');
 
+//var menuDialog      = require('./original/menuDialog');
+var actionsDialog   = require('./original/actionsDialog');
+var cardsDialog     = require('./original/cardsDialog');
+var carouselDialog  = require('./original/carouselDialog');
+var listDialog      = require('./original/listDialog');
+var pictureDialog   = require('./original/pictureDialog');
+var promptsDialog   = require('./original/promptsDialog');
+var receiptDialog   = require('./original/receiptDialog');
+
+var carProductsDialog = require('./carProductsDialog');
 //=========================================================
 // Bot Setup
 //=========================================================
@@ -77,7 +80,6 @@ server.post('/api/messages', connector.listen());
 //=========================================================
 // Activity Events
 //=========================================================
-
 bot.on('conversationUpdate', function (message) {
     // Check for group conversations
     if (message.address.conversation.isGroup) {
@@ -148,24 +150,25 @@ bot.dialog('/firstRun', [
 //=========================================================
 // Bots Global Actions
 //=========================================================
-
 bot.endConversationAction('goodbye', 'Goodbye :)', { matches: /^goodbye/i });
 bot.beginDialogAction('help', '/help', { matches: /^help/i });
 
 //=========================================================
 // Bots Dialogs
 //=========================================================
-
 rootDialog.load(bot, builder);
 menuDialog.load(bot, builder);
 helpDialog.load(bot, builder);
-promptsDialog.load(bot, builder);
-pictureDialog.load(bot, builder);
-cardsDialog.load(bot, builder);
-listDialog.load(bot, builder);
-carouselDialog.load(bot, builder);
-receiptDialog.load(bot, builder);
+
 actionsDialog.load(bot, builder);
+cardsDialog.load(bot, builder);
+carouselDialog.load(bot, builder);
+listDialog.load(bot, builder);
+pictureDialog.load(bot, builder);
+promptsDialog.load(bot, builder);
+receiptDialog.load(bot, builder);
+
+carProductsDialog.load(bot, builder);
 
 bot.dialog('/signin', [ 
     function (session) {

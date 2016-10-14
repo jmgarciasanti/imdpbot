@@ -35,20 +35,23 @@
     <Content Include="resources\html\index.html" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="actionsDialog.js" />
+    <Compile Include="carProductsDialog.js" />
+    <Compile Include="original\actionsDialog.js" />
     <Compile Include="app-old.js" />
     <Compile Include="app.js" />
-    <Compile Include="cardsDialog.js" />
-    <Compile Include="carouselDialog.js" />
+    <Compile Include="original\cardsDialog.js" />
+    <Compile Include="original\carouselDialog.js" />
     <Compile Include="helpDialog.js" />
-    <Compile Include="listDialog.js" />
+    <Compile Include="original\listDialog.js" />
     <Compile Include="menuDialog.js" />
-    <Compile Include="pictureDialog.js" />
-    <Compile Include="promptsDialog.js" />
-    <Compile Include="receiptDialog.js" />
+    <Compile Include="original\menuDialog.js" />
+    <Compile Include="original\pictureDialog.js" />
+    <Compile Include="original\promptsDialog.js" />
+    <Compile Include="original\receiptDialog.js" />
     <Compile Include="rootDialog.js" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="original\" />
     <Folder Include="resources\" />
     <Folder Include="resources\img\" />
     <Folder Include="resources\html\" />

@@ -10,12 +10,12 @@ module.exports = {
                     .title("AwarenessBot @ MAPFRE - IMDP")
                     .text("Let me help you better understand the world of insurance")
                     .images([
-                        builder.CardImage.create(session, "http://imdpbot-jmgarciasanti.rhcloud.com/resources/img/quienes_somos.jpg")
+                        builder.CardImage.create(session, "http://imdpbot-jmgarciasanti.rhcloud.com/resources/img/verti.jpg")
                     ])
-                    .tap(builder.CardAction.openUrl(session, "http://www.mapfre.es"));
+                    .tap(builder.CardAction.openUrl(session, "http://www.verti.es"));
                 var msg = new builder.Message(session).attachments([card]);
                 session.send(msg);
-                session.send("Hi... I'm a bot created by MAPFRE...");
+                session.send("Hi... I'm a bot created by Verti...");
                 session.beginDialog('/help');
             },
             function (session, results) {
