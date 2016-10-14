@@ -125,7 +125,8 @@ bot.dialog('/firstRun', [
     },
     function (session, results) {
         session.userData.name = results.response;
-        session.endDialog('Hi %s! Nice to meet you! Please, say something else.', session.userData.name);
+        session.send('Hi %s! Nice to meet you! Please, say something else.', session.userData.name);
+        session.beginDialog('/');
     }
 ]);
 
