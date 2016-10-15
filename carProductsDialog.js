@@ -50,19 +50,26 @@ module.exports = {
 var products = [
     {
         name: 'Car insurance',
-        description: 'cars and little truks',
-        img: 'http://imdpbot-jmgarciasanti.rhcloud.com/resources/img/verti_car.png',
+        description: 'cars and little trucks',
+        img: 'http://imdpbot-jmgarciasanti.rhcloud.com/resources/img/seguros-coche.png',
         url: 'https://www.verti.es/seguros/seguros-coche.html'
     },
     {
         name: 'Motorbike insurance',
         description: 'only bikes...',
-        img: 'http://imdpbot-jmgarciasanti.rhcloud.com/resources/img/verti_motorbike.png',
+        img: 'http://imdpbot-jmgarciasanti.rhcloud.com/resources/img/seguros-moto.png',
         url: 'https://www.verti.es/seguros/seguros-moto.html'
+    },
+    
+    {
+        name: 'Odometer insurance',
+        description: 'people who don\'t use the car regularly',
+        img: 'http://imdpbot-jmgarciasanti.rhcloud.com/resources/img/seguros-cuentakm.png',
+        url: 'https://www.verti.es/seguros/poliza-CuentaKms.html'
     },
     {
         name: 'Six wheel insurance',
         description: 'car and motorbike in a single product',
-        img: 'http://imdpbot-jmgarciasanti.rhcloud.com/resources/img/verti_6wheels.png',
+        img: 'http://imdpbot-jmgarciasanti.rhcloud.com/resources/img/seguros-6ruedas.png',
         url: 'https://www.verti.es/seguros/seguros-6-ruedas.html'
     }];
