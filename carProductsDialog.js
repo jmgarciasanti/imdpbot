@@ -52,17 +52,17 @@ var products = [
         name: 'Car insurance',
         description: 'cars and little truks',
         img: 'http://imdpbot-jmgarciasanti.rhcloud.com/resources/img/verti_car.png',
-        url: 'https://www.verti.es/cars'
+        url: 'https://www.verti.es/seguros/seguros-coche.html'
     },
     {
         name: 'Motorbike insurance',
         description: 'only bikes...',
         img: 'http://imdpbot-jmgarciasanti.rhcloud.com/resources/img/verti_motorbike.png',
-        url: 'https://www.verti.es/motorbikes'
+        url: 'https://www.verti.es/seguros/seguros-moto.html'
     },
     {
         name: 'Six wheel insurance',
         description: 'car and motorbike in a single product',
         img: 'http://imdpbot-jmgarciasanti.rhcloud.com/resources/img/verti_6wheels.png',
-        url: 'https://www.verti.es/6wheels'
+        url: 'https://www.verti.es/seguros/seguros-6-ruedas.html'
     }];
