@@ -35,7 +35,10 @@
     <Content Include="resources\html\index.html" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="homeProductsDialog.js" />
     <Compile Include="carProductsDialog.js" />
+    <Compile Include="productsMenuDialog.js" />
+    <Compile Include="menuDialog - choices.js" />
     <Compile Include="original\actionsDialog.js" />
     <Compile Include="app-old.js" />
     <Compile Include="app.js" />
@@ -48,6 +51,7 @@
     <Compile Include="original\pictureDialog.js" />
     <Compile Include="original\promptsDialog.js" />
     <Compile Include="original\receiptDialog.js" />
+    <Compile Include="aboutDialog.js" />
     <Compile Include="rootDialog.js" />
   </ItemGroup>
   <ItemGroup>

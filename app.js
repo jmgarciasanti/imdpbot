@@ -31,6 +31,7 @@ send Receipts, and use Carousels.
 var restify         = require('restify');
 var builder         = require('botbuilder');
 var rootDialog      = require('./rootDialog');
+var aboutDialog     = require('./aboutDialog');
 var menuDialog      = require('./menuDialog');
 var helpDialog      = require('./helpDialog');
 
@@ -43,7 +44,9 @@ var pictureDialog   = require('./original/pictureDialog');
 var promptsDialog   = require('./original/promptsDialog');
 var receiptDialog   = require('./original/receiptDialog');
 
+var productsMenuDialog = require('./productsMenuDialog');
 var carProductsDialog = require('./carProductsDialog');
+var homeProductsDialog = require('./homeProductsDialog');
 //=========================================================
 // Bot Setup
 //=========================================================
@@ -190,12 +193,13 @@ bot.use({
 // Bots Global Actions
 //=========================================================
 bot.endConversationAction('goodbye', 'Goodbye :)', { matches: /^goodbye/i });
-bot.beginDialogAction('help', '/help', { matches: /^help/i });
+//bot.beginDialogAction('help', '/help', { matches: /^help/i });
 
 //=========================================================
 // Bots Dialogs
 //=========================================================
 rootDialog.load(bot, builder);
+aboutDialog.load(bot, builder);
 menuDialog.load(bot, builder);
 helpDialog.load(bot, builder);
 
@@ -207,7 +211,9 @@ pictureDialog.load(bot, builder);
 promptsDialog.load(bot, builder);
 receiptDialog.load(bot, builder);
 
+productsMenuDialog.load(bot, builder);
 carProductsDialog.load(bot, builder);
+homeProductsDialog.load(bot, builder);
 
 bot.dialog('/signin', [ 
     function (session) {
