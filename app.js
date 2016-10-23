@@ -72,6 +72,7 @@ server.get(/\/js\/?.*/, restify.serveStatic({
 function processWebhook(req, res, next) {
     console.log("Hook received:");
     console.log("Headers    --> " + JSON.stringify(req.headers));
+    console.log("Params     --> " + JSON.stringify(req.params));
     console.log("Body       --> " + JSON.stringify(req.body));
     res.send({ "success": true });
 }
