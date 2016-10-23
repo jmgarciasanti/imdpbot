@@ -70,12 +70,29 @@ server.get(/\/js\/?.*/, restify.serveStatic({
 
 // webhook for Facebook
 function processWebhook(req, res, next) {
+    var botToken = 'EAAHuIvlRdNoBAKdDnXZBAZAWKPtothDSIl53QQUQ8G6t7ImT1yD43oHNMqe52quZAF8awIlfqZA80SBNFZAPYvfaEALkUFMVDB4DYX1JGJZBRoNawcZCdo7IkibUljPjJZBK9Lm0FkIxVjRUDZCA3noD0zX9tRZAKvNulYpaXTwYm9B1Hqch12sJRJ';
     console.log("Hook received:");
     console.log("Headers    --> " + JSON.stringify(req.headers));
     console.log("URL        --> " + JSON.stringify(req.url));
     console.log("Query      --> " + JSON.stringify(req.query));
     console.log("Body       --> " + JSON.stringify(req.body));
-    res.send({ "success": true });
+    
+    if (typeof req.query != 'undefined' && typeof req.query.hub != 'undefined') {
+        var mode = req.query.hub.mode;
+        var challenge = req.query.hub.challenge;
+        var token = req.query.hub.verify_token;
+        if (mode == 'subscribe') {
+            if (token == botToken) {
+                res.send(challenge);
+            } else {
+                res.send({ "success": false, "reason": "Bad token " + token});
+            }
+        } else {
+            res.send({ "success": false, "reason": "Unknown mode " + mode});
+        }
+    } else {
+        res.send({ "success": true });
+    }
 }
 server.use(restify.queryParser());
 server.get(/\/webhook\/?.*/, processWebhook);
