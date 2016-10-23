@@ -5,7 +5,7 @@ module.exports = {
     load: function (bot, builder) {
         bot.dialog('/menu', [
             function (session) {
-                builder.Prompts.choice(session, "How can I help you?", menuOptions, { listStyle: builder.ListStyle.auto });
+                builder.Prompts.choice(session, "How can I help you?", menuOptions, { listStyle: builder.ListStyle.button });
             },
             function (session, results) {
                 if (results.response) {
