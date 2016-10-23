@@ -180,6 +180,7 @@ bot.dialog('/firstRun', [
 bot.use({
     botbuilder: function (session, next) {
         console.log(session.message);
+        next();
     }
 });
 
