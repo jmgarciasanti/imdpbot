@@ -163,6 +163,7 @@ bot.on('deleteUserData', function (message) {
 bot.use(builder.Middleware.dialogVersion({ version: 1.0, resetCommand: /^reset/i }));
 
 //Adds a first run experience to a bot
+/*
 bot.use(builder.Middleware.firstRun({ version: 1.0, dialogId: '*:/firstRun' }));
 
 bot.dialog('/firstRun', [
@@ -175,6 +176,7 @@ bot.dialog('/firstRun', [
         session.beginDialog('/');
     }
 ]);
+*/
 
 // tracing
 bot.use({

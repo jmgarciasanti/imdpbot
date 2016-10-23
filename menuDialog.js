@@ -5,20 +5,19 @@ module.exports = {
     load: function (bot, builder) {
         bot.dialog('/menu', [
             function (session) {
-                //builder.Prompts.choice(session, "How can I help you?", menuOptions, { listStyle: builder.ListStyle.button });
-                builder.Prompts.choice(session, "How can I help you 2?", "car|general|quit");
+                builder.Prompts.choice(session, "How can I help you?", menuOptions, { listStyle: builder.ListStyle.button });                
             },
             function (session, results) {
                 if (results.response) {
-                    var menuOption = menuOptions[results.response.entity];
-                    switch (menuOption.value) {
-                        case 1:
+                    var menuOption = results.response.entity;
+                    switch (menuOption) {
+                        case menuOptions[0]:
                             session.beginDialog('/carProducts');
                             break;
-                        case 2:
+                        case menuOptions[1]:
                             session.beginDialog('/help');
                             break;
-                        case 3:
+                        case menuOptions[2]:
                             session.endDialog();
                             break;
                     }
@@ -35,8 +34,8 @@ module.exports = {
     }
 }
 
-var menuOptions = {
-    "Car insurance products": { value: 1 },
-    "General insurance teaching": { value: 2 },
-    "(quit)": { value: 3 }
-};
+var menuOptions = [ 
+    "Car insurance products",
+    "General insurance teaching",
+    "Quit"
+];
