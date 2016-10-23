@@ -70,7 +70,9 @@ server.get(/\/js\/?.*/, restify.serveStatic({
 
 // webhook for Facebook
 function processWebhook(req, res, next) {
-    console.log("Hook received: " + JSON.stringify(req));
+    console.log("Hook received:");
+    console.log("Headers    --> " + JSON.stringify(req.headers));
+    console.log("Body       --> " + JSON.stringify(req.body));
     res.send({ "success": true });
 }
 server.get('/webhook', processWebhook);
