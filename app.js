@@ -83,7 +83,7 @@ function processWebhook(req, res, next) {
         var token = req.query.hub.verify_token;
         if (mode == 'subscribe') {
             if (token == botToken) {
-                res.send(challenge);
+                res.end(challenge);
             } else {
                 res.send({ "success": false, "reason": "Bad token " + token});
             }
