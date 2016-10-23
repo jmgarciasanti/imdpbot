@@ -68,6 +68,13 @@ server.get(/\/js\/?.*/, restify.serveStatic({
     directory: __dirname + '/node_modules/bootstrap/dist/'
 }));
 
+// webhook for Facebook
+function processWebhook(req, res, next) {
+    res.send({ "success": true });
+}
+server.get('/webhook', processWebhook);
+server.post('/webhook', processWebhook);
+
 
 // Create chat bot
 var connector = new builder.ChatConnector({
