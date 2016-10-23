@@ -35,7 +35,7 @@ module.exports = {
 }
 
 var menuOptions = [ 
-    "Carinsuranceproducts",
-    "Generalinsuranceteaching",
+    "Car",
+    "General",
     "Quit"
 ];
