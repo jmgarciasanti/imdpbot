@@ -72,13 +72,14 @@ server.get(/\/js\/?.*/, restify.serveStatic({
 function processWebhook(req, res, next) {
     console.log("Hook received:");
     console.log("Headers    --> " + JSON.stringify(req.headers));
-    console.log("Params     --> " + JSON.stringify(req.params));
+    console.log("URL        --> " + JSON.stringify(req.url));
+    console.log("Query      --> " + JSON.stringify(req.query));
     console.log("Body       --> " + JSON.stringify(req.body));
     res.send({ "success": true });
 }
-server.get('/webhook', processWebhook);
-server.post('/webhook', processWebhook);
-
+server.use(restify.queryParser());
+server.get(/\/webhook\/?.*/, processWebhook);
+server.post(/\/webhook\/?.*/, processWebhook);
 
 // Create chat bot
 var connector = new builder.ChatConnector({
