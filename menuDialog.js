@@ -6,8 +6,8 @@ module.exports = {
         // Create LUIS recognizer that points at our model and add it as the root '/' dialog for our Cortana Bot.
         var model = 'https://api.projectoxford.ai/luis/v1/application?id=30b29ab2-39de-49c1-9423-d0cfbbb1c150&subscription-key=f43e7bcf41ec4af8bb3023fc12f846a2';
         var recognizer = new builder.LuisRecognizer(model);
-        var intentDialog = new builder.IntentDialog({ recognizers: [recognizer] });
-        
+        var intentDialog = new builder.IntentDialog({ recognizers: [recognizer], intentThreshold: 0.8 });
+
         bot.dialog('/menu', function (session) {
             session.send("I can show you available products or talk about general insurance. Please let me know what you want.");
             session.beginDialog('/menuIntent');
@@ -71,6 +71,18 @@ module.exports = {
         intentDialog.matches('Quit', function (session) {
             session.endDialog();
         });
+
+        intentDialog.matches('None', [
+            function (session) {
+                session.send("Excuse me...I didn't understand");
+            },
+            function (session) {
+                // The menu runs a loop until the user chooses to (quit).
+                session.replaceDialog('/menu');
+            }
+        ]);
+
+        intentDialog.onDefault(builder.DialogAction.send("Excuse me...I didn't understand"));
     }
 }
 
