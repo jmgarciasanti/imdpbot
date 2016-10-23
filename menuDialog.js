@@ -5,6 +5,7 @@ module.exports = {
     load: function (bot, builder) {
         bot.dialog('/menu', [
             function (session) {
+                session.send('Main menu:');
                 builder.Prompts.choice(session, "How can I help you?", menuOptions);
             },
             function (session, results) {
