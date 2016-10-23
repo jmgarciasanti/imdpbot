@@ -176,6 +176,13 @@ bot.dialog('/firstRun', [
     }
 ]);
 
+// tracing
+bot.use({
+    botbuilder: function (session, next) {
+        console.log(session.message);
+    }
+});
+
 //=========================================================
 // Bots Global Actions
 //=========================================================
