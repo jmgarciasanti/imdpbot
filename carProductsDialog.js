@@ -13,7 +13,7 @@ module.exports = {
                 for (var i = 0; i < products.length; ++i) {
                     var card= new builder.HeroCard(session)
                     .title(products[i].name)
-                    .text("The <b>" + products[i].name + "</b> product is for " + products[i].description + " ...")
+                    .text(products[i].description)
                     .images([
                         builder.CardImage.create(session, products[i].img)
                     ])
